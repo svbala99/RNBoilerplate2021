@@ -9,6 +9,7 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
+    "commit": "git add . && git-cz",
     "lint:fix": "eslint --fix",
     "generate-apk": "cd android && ./gradlew assembleRelease && open ./app/build/outputs/apk/",
     "install-apk": "cd android && ./gradlew installRelease",
@@ -24,8 +25,12 @@
   "devDependencies": {
     "@babel/core": "7.14.0",
     "@babel/runtime": "7.14.0",
+    "@commitlint/cli": "^12.1.1",
+    "@commitlint/config-conventional": "^12.1.1",
     "@react-native-community/eslint-config": "2.0.0",
     "babel-jest": "26.6.3",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.25.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-plugin-import": "^2.22.1",
@@ -38,5 +43,16 @@
   },
   "jest": {
     "preset": "react-native"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }
