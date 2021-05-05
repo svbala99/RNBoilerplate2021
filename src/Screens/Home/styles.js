@@ -1,5 +1,6 @@
 // library imports
 import { StyleSheet } from 'react-native';
+import colors from '../../Styles/theme';
 
 // Style object
 const styles = StyleSheet.create({
@@ -7,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: colors.light.background,
   },
 });
 
